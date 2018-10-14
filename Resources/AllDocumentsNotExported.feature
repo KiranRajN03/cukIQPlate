@@ -17,6 +17,7 @@ Scenario Outline: Verify Order Type Filter
 	When user clicks on More <Select Value>
 	And user clicks on not Exported 
 	Then validate value exported text is not on the screen <Text to validate>
+	 And user closes browser
 	
 	
 	Examples: 

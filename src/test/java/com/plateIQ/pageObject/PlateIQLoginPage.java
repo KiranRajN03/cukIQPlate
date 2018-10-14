@@ -25,6 +25,10 @@ public class PlateIQLoginPage {
 	@FindBy(className = "mat-button-wrapper")
 	private WebElement btn_signIn;
 	
+	
+	@FindBy(xpath = "/html/body/div[3]/div/div")
+	private WebElement errMsgValidation;
+	
 	public PlateIQLoginPage(WebDriver driver) 
 	{
 		this.driver = driver;
@@ -60,13 +64,32 @@ public class PlateIQLoginPage {
 		else
 		{
 			
-			assertFalse("Welcome message Validated", false);
+			assertFalse("Welcome message Validated", true);
 		}
 	}
 
 	public void clickOk() 
 	{
 		btn_signIn.click();
+	}
+	
+	public void validateErrMessage(String errMsg) {
+		WebDriverWait wait = new WebDriverWait(driver, 3000);
+		wait.until(ExpectedConditions.visibilityOf(errMsgValidation));
+		String vldtMsgErr = errMsgValidation.getText().toString();
+		System.out.println(vldtMsgErr);
+		if(errMsg.equalsIgnoreCase(vldtMsgErr))
+		{
+			
+			assertTrue("Error message Validated", true);
+		}
+		else
+		{
+			
+			assertFalse("Error message Validated", true);
+		}
+		
+		
 	}
 	
 }

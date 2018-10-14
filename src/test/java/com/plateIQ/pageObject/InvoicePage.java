@@ -4,8 +4,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -146,7 +148,13 @@ public class InvoicePage {
 		}
 		//WebDriverWait wait = new WebDriverWait(driver, 3000);
 		//WebElement drpDwn_More = driver.findElement(By.cssSelector("#invoice-header > div.d-flex-vcenter.d-flex-between.header-button-row.col-sm-12.nopadding > section.header-btns-actions.text-right > button > span:nth-child(2)"));
-		drpDwn_More.click();
+		//drpDwn_More.click();
+		//WebElement drpDnw = driver.findElement(By.cssSelector("#invoice-header > div.d-flex-vcenter.d-flex-between.header-button-row.col-sm-12.nopadding > section.header-btns-actions.text-right > span > button > span"));
+		Actions a = new Actions(driver);
+	for(int i=0; i<15;i++) {
+		a.sendKeys(Keys.TAB);
+	}
+	a.sendKeys(Keys.ENTER);
 		//Select dropdown= new Select(drpDwn_More);
 		//dropdown.selectByVisibleText(selectValue);
 		//wait.until(ExpectedConditions.visibilityOf(drpDwn_More));
