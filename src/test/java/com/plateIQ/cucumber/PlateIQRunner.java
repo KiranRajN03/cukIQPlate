@@ -24,7 +24,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
         features="./Resources",
         glue= {"com.plateIQ.stepdefinition"},
-        tags = {"@UI_test"},
+        tags = {"@UI_test_A"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:./target/output/report.html"}
 )
 public class PlateIQRunner {
